@@ -57,7 +57,7 @@ class Config(object):
     # Only useful if you supply a callable to BACKBONE. Should compute
     # the shape of each layer of the FPN Pyramid.
     # See model.compute_backbone_shapes
-    COMPUTE_BACKBONE_SHAPE =    1
+    COMPUTE_BACKBONE_SHAPE =    None
 
     # The strides of each layer of the FPN Pyramid. These values
     # are based on a Resnet101 backbone.
