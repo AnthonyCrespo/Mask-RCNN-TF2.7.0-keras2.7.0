@@ -2161,7 +2161,7 @@ class MaskRCNN(object):
         """
         # Optimizer object
         optimizer = keras.optimizers.SGD(
-            lr=learning_rate, momentum=momentum, weight_decay=weight_decay
+            lr=learning_rate, momentum=momentum, weight_decay=weight_decay,
             clipnorm=self.config.GRADIENT_CLIP_NORM)
         # Add Losses
         loss_names = [
@@ -2351,7 +2351,7 @@ class MaskRCNN(object):
         log("\nStarting at epoch {}. LR={}\n".format(self.epoch, learning_rate))
         log("Checkpoint Path: {}".format(self.checkpoint_path))
         self.set_trainable(layers)
-        self.compile(learning_rate, self.config.LEARNING_MOMENTUM)
+        self.compile(learning_rate, self.config.LEARNING_MOMENTUM, 0.0001)
 
         # Work-around for Windows: Keras fails on Windows when using
         # multiprocessing workers. See discussion here:
