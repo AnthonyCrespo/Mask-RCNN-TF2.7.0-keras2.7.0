@@ -241,7 +241,7 @@ def train(dataset_train, dataset_val, model):
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=50,
-                layers='heads')
+                layers='all') #layers = 'heads'
  
 def test(model, image_path = None, video_path=None, savedfile=None):
     assert image_path or video_path
