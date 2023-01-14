@@ -210,8 +210,8 @@ class LabelmeDataset(utils.Dataset):
             # Get indexes of pixels inside the polygon and set them to 1
             pointsy,pointsx = zip(*points)
             rr, cc = skimage.draw.polygon(pointsx, pointsy)
-            #rr[rr > mask.shape[0]-1] = mask.shape[0]-1
-            #cc[cc > mask.shape[1]-1] = mask.shape[1]-1
+            rr[rr > mask.shape[0]-1] = mask.shape[0]-1
+            cc[cc > mask.shape[1]-1] = mask.shape[1]-1
             mask[rr, cc, idx] = 1
         masks_np = mask.astype(np.bool)
         classids_np = np.array(image_info["classids"]).astype(np.int32)
