@@ -55,7 +55,7 @@ class ModelConfig(Config):
     IMAGES_PER_GPU = 2 # 1
 
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 1 # Background,
+    NUM_CLASSES = 7 + 1 # Background,
     # typically after labeled, class can be set from Dataset class
     # if you want to test your model, better set it corectly based on your trainning dataset
  
