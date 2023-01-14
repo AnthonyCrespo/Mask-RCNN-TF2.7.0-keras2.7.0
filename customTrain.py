@@ -60,7 +60,7 @@ class ModelConfig(Config):
     # if you want to test your model, better set it corectly based on your trainning dataset
  
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 200
+    STEPS_PER_EPOCH = 725
  
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
@@ -69,9 +69,8 @@ class ModelConfig(Config):
     
     IMAGE_MAX_DIM = 960
 
-    VALIDATION_STEPS = 725
+    VALIDATION_STEPS = 200
 
-    ITERATIONS = 200
 
     LEARNING_RATE = 0.0001
  
@@ -236,12 +235,12 @@ def train(dataset_train, dataset_val, model):
     dataset_val.prepare()
  
     # *** This training schedule is an example. Update to your needs ***
-    print("Training network heads")
+    print("Training all layers")
     model.compile(0.0001, 0.9)
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=50,
-                layers='all') #layers = 'heads'
+                layers='all')
  
 def test(model, image_path = None, video_path=None, savedfile=None):
     assert image_path or video_path
