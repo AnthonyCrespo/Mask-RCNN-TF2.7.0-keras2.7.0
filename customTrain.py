@@ -60,10 +60,18 @@ class ModelConfig(Config):
     # if you want to test your model, better set it corectly based on your trainning dataset
  
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 100
+    STEPS_PER_EPOCH = 200
  
     # Skip detections with < 90% confidence
     DETECTION_MIN_CONFIDENCE = 0.9
+
+    IMAGE_MIN_DIM = 512
+    
+    IMAGE_MAX_DIM = 960
+
+    VALIDATION_STEPS = 725
+
+    ITERATIONS = 200
  
 class InferenceConfig(ModelConfig):
     # Set batch size to 1 since we'll be running inference on
@@ -227,6 +235,7 @@ def train(dataset_train, dataset_val, model):
  
     # *** This training schedule is an example. Update to your needs ***
     print("Training network heads")
+    model.compile(0.0001, 0.9)
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=30,
