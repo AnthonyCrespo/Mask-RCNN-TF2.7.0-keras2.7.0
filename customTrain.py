@@ -72,6 +72,8 @@ class ModelConfig(Config):
     VALIDATION_STEPS = 725
 
     ITERATIONS = 200
+
+    LEARNING_RATE = 0.0001
  
 class InferenceConfig(ModelConfig):
     # Set batch size to 1 since we'll be running inference on
@@ -238,7 +240,7 @@ def train(dataset_train, dataset_val, model):
     model.compile(0.0001, 0.9)
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
-                epochs=30,
+                epochs=50,
                 layers='heads')
  
 def test(model, image_path = None, video_path=None, savedfile=None):
