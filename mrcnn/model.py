@@ -2155,7 +2155,7 @@ class MaskRCNN(object):
                                 md5_hash='a268eb855778b3df3c7506639542a6af')
         return weights_path
 
-    def compile(self, learning_rate, momentum,weight_decay):
+    def compile(self, learning_rate, momentum):
         """Gets the model ready for training. Adds losses, regularization, and
         metrics. Then calls the Keras compile() function.
         """
